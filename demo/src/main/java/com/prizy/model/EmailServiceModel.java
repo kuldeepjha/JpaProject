@@ -30,8 +30,16 @@ public class EmailServiceModel {
 	private String mailId;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "empId", nullable = false)
-	private EmployeeModel employeeModel;
+	@JoinColumn(name = "addId", nullable = false)
+	private EmployeeAddressModel employeeAddressModel;
+
+	public EmployeeAddressModel getEmployeeAddressModel() {
+		return employeeAddressModel;
+	}
+
+	public void setEmployeeAddressModel(EmployeeAddressModel employeeAddressModel) {
+		this.employeeAddressModel = employeeAddressModel;
+	}
 
 	public EmailServiceModel() {
 
@@ -46,13 +54,13 @@ public class EmailServiceModel {
 	}
 
 	public EmailServiceModel(Date date, String subject, String messgae, int phoneNo, String mailId,
-			EmployeeModel employeeModel) {
+			EmployeeAddressModel employeeAddressModel) {
 		this.date = date;
 		this.subject = subject;
 		this.messgae = messgae;
 		this.phoneNo = phoneNo;
 		this.mailId = mailId;
-		this.employeeModel = employeeModel;
+		this.employeeAddressModel = employeeAddressModel;
 	}
 
 	public int getId() {
@@ -103,18 +111,11 @@ public class EmailServiceModel {
 		this.mailId = mailId;
 	}
 
-	public EmployeeModel getEmployeeModel() {
-		return employeeModel;
-	}
-
-	public void setEmployeeModel(EmployeeModel employeeModel) {
-		this.employeeModel = employeeModel;
-	}
-
 	@Override
 	public String toString() {
 		return "EmailServiceModel [id=" + id + ", date=" + date + ", subject=" + subject + ", messgae=" + messgae
-				+ ", phoneNo=" + phoneNo + ", mailId=" + mailId + ", employeeModel=" + employeeModel + "]";
+				+ ", phoneNo=" + phoneNo + ", mailId=" + mailId + ", employeeAddressModel=" + employeeAddressModel
+				+ "]";
 	}
 
 }

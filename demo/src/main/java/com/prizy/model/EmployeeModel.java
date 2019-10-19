@@ -23,7 +23,7 @@ public class EmployeeModel {
 	private String name;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "employeeModel")
-	private List<EmailServiceModel> emailServiceModel = new ArrayList<>();
+	private List<EmployeeAddressModel> employeeAddressModel = new ArrayList<>();
 
 	public EmployeeModel() {
 
@@ -49,17 +49,18 @@ public class EmployeeModel {
 		this.name = name;
 	}
 
-	public List<EmailServiceModel> getEmailServiceModel() {
-		return emailServiceModel;
+	public List<EmployeeAddressModel> getEmployeeAddressModel() {
+		return employeeAddressModel;
 	}
 
-	public void setEmailServiceModel(List<EmailServiceModel> emailServiceModel) {
-		this.emailServiceModel = emailServiceModel;
+	public void setEmployeeAddressModel(List<EmployeeAddressModel> employeeAddressModel) {
+		this.employeeAddressModel = employeeAddressModel;
 	}
 
 	@Override
 	public String toString() {
-		return "EmployeeModel [empId=" + empId + ", name=" + name + ", emailServiceModel=" + emailServiceModel + "]";
+		return "EmployeeModel [empId=" + empId + ", name=" + name + ", employeeAddressModel=" + employeeAddressModel
+				+ "]";
 	}
 
 }
